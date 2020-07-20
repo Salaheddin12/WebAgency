@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css?family=Martel+Sans|Montserrat|Roboto+Mono|Ubuntu&display=swap");
+$Colors: (
+  primary: #54123b,
+  secondary: #84142d,
+  UnderSecondary: #c02739,
+  TealLight:
+    darken(
+      $color: #29c7ac,
+      $amount: 15%
+    )
+);
+$OneSecondTransition: 1s all ease-in-out;
+$fonts: (
+  Montserrat: "Montserrat",
+  Martel-Sans: "Martel Sans",
+  Roboto-Mono: "Roboto Mono",
+  Ubuntu: "Ubuntu"
+);
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  //background-color: map-get($map: $Colors, $key: secondary);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: map-get($map: $Colors, $key: primary);
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  background-color: map-get($Colors, primary);
+  font-size: 35px;
+  text-decoration: none;
+  text-transform: uppercase;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  float: left;
+  width: 300px;
+  text-align: center;
+  letter-spacing: 3px;
+  align-self: center;
+  padding: 5px 0;
+}
+
+.logo span {
+  color: whitesmoke;
+  transition: $OneSecondTransition;
+}
+
+.logo:hover {
+  span {
+    font-size: 38px;
+  }
+}
+
+.nav {
+  display: inline-block;
+  list-style-type: none;
+  background-color: map-get($map: $Colors, $key: primary);
+  color: whitesmoke;
+
+  .nav-item {
+    display: inline-block;
+    padding: 15px 5rem;
+    font-size: 22px;
+    font-family: map-get($fonts, Ubuntu);
+    margin: 0 auto;
+    transition: $OneSecondTransition;
+  }
+}
+
+.nav-item:hover {
+  background-color: lighten(
+    $color: map-get($map: $Colors, $key: primary),
+    $amount: 5%
+  );
+}
+
+header {
+  background-color: map-get($map: $Colors, $key: primary);
+}
+.button {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 30px;
+  font-family: map-get($map: $fonts, $key: Montserrat);
+  margin: 20px;
+  display: inline-block;
+  transition: all 1s ease-in-out;
+}
+.content {
+  background-image: linear-gradient(
+      to bottom,
+      transparent,
+      darken($color: #ffffff, $amount: 15%)
+    ),
+    url(images/current-projects-2.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 743px;
+  text-align: center;
+  width: 100%;
+  #content {
+    padding: 250px 0;
+  }
+
+  .content-title {
+    font-size: 90px;
+    color: map-get($map: $Colors, $key: UnderSecondary);
+    font-family: map-get($map: $fonts, $key: Ubuntu);
+    letter-spacing: 10px;
+    margin-bottom: 4rem;
+  }
+
+  .content-button {
+    color: whitesmoke;
+    background-color: map-get($map: $Colors, $key: UnderSecondary);
+  }
+}
+/*pages*/
+.pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  justify-content: space-around;
+  margin: 2rem;
+
+  .page {
+    // background-color: darken($color: #ffffff, $amount: 15%);
+    // flex-grow: 1;
+    padding: 25px;
+    text-align: center;
+    transition: $OneSecondTransition;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+    margin: 1rem;
+    .page-icon {
+      font-size: 60px;
+      color: map-get($map: $Colors, $key: TealLight);
+      transition: $OneSecondTransition;
+    }
+    .page-description {
+      display: inline-block;
+      margin: 10px 0;
+      max-width: 300px;
+      font-size: 22px;
+      transition: $OneSecondTransition;
+    }
+    .page-title {
+      padding: 10px 0;
+      font-size: 35px;
+      font-family: map-get($map: $fonts, $key: Ubuntu);
+      color: map-get($map: $Colors, $key: UnderSecondary);
+      transition: $OneSecondTransition;
+    }
+  }
+  .page:hover {
+    background-color: map-get($map: $Colors, $key: UnderSecondary);
+    .page-icon {
+      color: lighten(map-get($map: $Colors, $key: TealLight), 10%);
+    }
+    .page-title {
+      color: darken($color: #ffffff, $amount: 20);
+    }
+    .page-description {
+      color: darken($color: #ffffff, $amount: 10);
+    }
+  }
+}
+//services
+.description {
+  display: inline-block;
+  margin: 10px 0;
+  max-width: 300px;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: map-get($map: $fonts, $key: Ubuntu);
+  transition: $OneSecondTransition;
+}
+.title {
+  padding: 10px 0;
+  font-size: 40px;
+  font-family: map-get($map: $fonts, $key: Ubuntu);
+  transition: $OneSecondTransition;
+  font-weight: bold;
+  margin-bottom: 5rem;
+}
+.services {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    darken($color: #ffffff, $amount: 15%)
+  );
+
+  background-size: cover;
+  display: grid;
+  padding: 2rem 0;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  .service-title {
+    transition: $OneSecondTransition;
+  }
+  .service {
+    padding: 25px;
+    text-align: center;
+    transition: $OneSecondTransition;
+    height: 200px;
+    width: 50%;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px rgb(124, 122, 122);
+  }
+  .service-icon {
+    margin-top: 1rem;
+    font-size: 60px;
+    transition: $OneSecondTransition;
+  }
+
+  :nth-child(1).service:hover,
+  :nth-child(4).service:hover {
+    background-color: map-get($map: $Colors, $key: UnderSecondary);
+    transition: $OneSecondTransition;
+    box-shadow: none;
+    .service-icon {
+      color: whitesmoke;
+    }
+    .service-title {
+      color: darken($color: #fff, $amount: 15%);
+    }
+    .service-description {
+      color: darken($color: #ffffff, $amount: 10);
+    }
+    .services-button {
+      color: map-get($map: $Colors, $key: UnderSecondary);
+      background-color: whitesmoke;
+    }
+  }
+  :nth-child(2).service:hover,
+  :nth-child(3).service:hover {
+    background-color: #d9d9d9c7;
+    box-shadow: inset 5px 5px 10px rgb(124, 122, 122);
+    .service-icon {
+      font-size: 60px;
+      transition: $OneSecondTransition;
+      color: lighten(map-get($map: $Colors, $key: TealLight), 10%);
+    }
+    .service-title {
+      color: map-get($map: $Colors, $key: UnderSecondary);
+    }
+    .service-description {
+      color: #333333;
+    }
+    .services-button {
+      color: whitesmoke;
+      background-color: map-get($map: $Colors, $key: UnderSecondary);
+    }
+  }
+  :nth-child(1).service,
+  :nth-child(4).service {
+    background-color: #d9d9d9c7;
+    .service-icon {
+      color: lighten(map-get($map: $Colors, $key: TealLight), 10%);
+    }
+    .service-title {
+      color: map-get($map: $Colors, $key: UnderSecondary);
+    }
+    .service-description {
+      color: #333333;
+    }
+    .services-button {
+      color: whitesmoke;
+      background-color: map-get($map: $Colors, $key: UnderSecondary);
+    }
+  }
+  :nth-child(2).service,
+  :nth-child(3).service {
+    box-shadow: none;
+    background-color: map-get($map: $Colors, $key: UnderSecondary);
+    .service-icon {
+      color: lighten(map-get($map: $Colors, $key: TealLight), 10%);
+    }
+    .service-title {
+      color: darken($color: #fff, $amount: 15%);
+    }
+    .service-description {
+      color: darken($color: #ffffff, $amount: 10);
+    }
+    .services-button {
+      color: map-get($map: $Colors, $key: UnderSecondary);
+      background-color: whitesmoke;
+    }
+  }
+}
+.service:hover {
+  .wraper {
+    transition: all 1s;
+    transform: translateY(-250px);
+  }
+}
+@media screen and (max-width: 940px) {
+  .services {
+    .service1 {
+      order: 1;
+    }
+    .service2 {
+      order: 2;
+    }
+    .service3 {
+      order: 4;
+    }
+    .service4 {
+      order: 3;
+    }
+    grid-template-columns: 1fr;
+  }
+}
+//posts
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 5rem 0;
+  background-image: linear-gradient(
+    to top,
+    transparent,
+    darken($color: #ffffff, $amount: 15%)
+  );
+  .post {
+    width: 300px;
+    text-align: center;
+    position: relative;
+    transition: $OneSecondTransition;
+    box-shadow: inset 5px 5px 10px rgb(233, 232, 232),
+      inset -5px -5px 10px rgb(233, 232, 232);
+    border-radius: 10px;
+
+    .post-img {
+      border-radius: 10px 10px 0 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 150px;
+      background-color: map-get($map: $Colors, $key: secondary);
+      box-shadow: 0 6px 10px map-get($map: $Colors, $key: secondary);
+    }
+    .post-info {
+      margin: 0 20px;
+    }
+    .post-button {
+      color: whitesmoke;
+      background-color: map-get($map: $Colors, $key: UnderSecondary);
+    }
+    .post-title {
+      color: map-get($map: $Colors, $key: primary);
+      letter-spacing: 4px;
+      margin-bottom: 0;
+    }
+  }
+  .post:hover {
+    transform: translateY(-40px);
+  }
+}
